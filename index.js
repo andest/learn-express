@@ -24,7 +24,17 @@ server.use((req, res, next) => {
 
 server.get('/', (req, res) => res.send('Hello World!'))
 
-server.get('/student/?', (req, res) => res.json(data));
+server.get('/student/?', (req, res) => {
+  const name = req.query.name;
+  
+  let filteredData = data;
+  
+  if (name) {
+    filteredData = data.filter((_data) => _data.name.includes(name) );
+  }
+  
+  return res.json(filteredData)
+});
 
 server.post('/student/new/?', (req, res) => {
   const postData = req.body;
