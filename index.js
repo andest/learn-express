@@ -27,7 +27,7 @@ server.get('/', (req, res) => res.send('Hello World!'))
 server.get('/student/?', (req, res) => {
   const name = req.query.name;
   const page = req.query.page || 1;
-  const displayItems = req.query.displayItems || 3;
+  const displayItems = req.query.displayItems || 10;
   
   let filteredData = data;
   
