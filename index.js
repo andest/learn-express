@@ -26,14 +26,32 @@ server.get('/', (req, res) => res.send('Hello World!'))
 
 server.get('/student/?', (req, res) => {
   const name = req.query.name;
+  const page = req.query.page || 1;
+  const displayItems = req.query.displayItems || 3;
   
   let filteredData = data;
   
+  const pageItemStartIndex = (page - 1) * displayItems;
+  const pageItemEndIndex = (page - 1) * displayItems + displayItems - 1;
+
   if (name) {
-    filteredData = data.filter((_data) => _data.name.includes(name) );
+    filteredData = data.filter((_data, index) => _data.name.includes(name) );
   }
+
+  const totalPages = Math.ceil(filteredData.length / displayItems);
   
-  return res.json(filteredData)
+  if (page > totalPages) {
+    return res.status(400).json({ error: 'Page does not exist' });
+  }
+
+  filteredData = data.filter((_data, index) => index >= pageItemStartIndex && index <= pageItemEndIndex );
+
+  return res.json({
+    data: filteredData,
+    displayItems,
+    page,
+    totalPages
+  })
 });
 
 server.post('/student/new/?', (req, res) => {
