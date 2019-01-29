@@ -35,7 +35,7 @@ server.get('/student/?', (req, res) => {
   const pageItemEndIndex = (page - 1) * displayItems + displayItems - 1;
 
   if (name) {
-    filteredData = data.filter((_data, index) => _data.name.includes(name) );
+    filteredData = data.filter((_data) => _data.name.includes(name) );
   }
 
   const totalPages = Math.ceil(filteredData.length / displayItems);
