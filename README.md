@@ -1,5 +1,5 @@
 # learn-express
-
+  
 Get Student  
 url : `/student`  
 query param : `name`, `page` and `displayItems`   
@@ -15,7 +15,7 @@ response:
   displayItems: 10
 }
 ```
-
+  
 Add New Student  
 url: `/student/new`  
 request: 
@@ -38,7 +38,7 @@ validation error response:
   error: "Error"
 }
 ```
-
+  
 Edit New Student  
 url: `/student/:id`  
 request: 
