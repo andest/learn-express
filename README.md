@@ -1,7 +1,8 @@
 # learn-express
   
 Get Student  
-url : `/student`  
+url : `/student`
+method: `GET`  
 query param : `name`, `page` and `displayItems`   
 response: 
 ```
@@ -18,6 +19,7 @@ response:
   
 Add New Student  
 url: `/student/new`  
+method: `POST`  
 request: 
 ```
 {
@@ -41,6 +43,7 @@ validation error response:
   
 Edit New Student  
 url: `/student/:id`  
+method: `POST`  
 request: 
 ```
 {
