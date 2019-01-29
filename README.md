@@ -1,7 +1,7 @@
 # learn-express
   
 Get Student  
-url : `/student`
+url : `/student`  
 method: `GET`  
 query param : `name`, `page` and `displayItems`   
 response: 
