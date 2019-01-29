@@ -70,7 +70,7 @@ server.post('/student/new/?', (req, res) => {
     grade: postData.grade,
   });
 
-  return res.json('Success');
+  return res.json({ status: 'Success' });
 });
 
 server.post('/student/:id/?', (req, res) => {
