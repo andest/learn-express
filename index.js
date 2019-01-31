@@ -73,6 +73,25 @@ server.post('/student/new/?', (req, res) => {
   return res.json({ status: 'Success' });
 });
 
+server.get('/student/:id/?', (req, res) => {
+  const postData = req.body;
+  const id = req.params.id;
+
+  let error = '';
+
+  if (!data[id - 1]) {
+    error = 'Id not found';
+  }
+
+  if (error) {
+    return res.status(400).json({ error });
+  }
+
+  return res.json({ 
+    data: data[id - 1]; 
+  });
+});
+
 server.post('/student/:id/?', (req, res) => {
   const postData = req.body;
   const id = req.params.id;
