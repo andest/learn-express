@@ -74,7 +74,6 @@ server.post('/student/new/?', (req, res) => {
 });
 
 server.get('/student/:id/?', (req, res) => {
-  const postData = req.body;
   const id = req.params.id;
 
   let error = '';
@@ -88,7 +87,7 @@ server.get('/student/:id/?', (req, res) => {
   }
 
   return res.json({ 
-    data: data[id - 1]; 
+    data: data[id - 1]
   });
 });
 
